@@ -1,0 +1,5 @@
+/* Legacy site supplies global typography and layout. Keep React root transparent. */
+#root {
+  margin: 0;
+  padding: 0;
+}
