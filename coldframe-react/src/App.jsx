@@ -1,6 +1,13 @@
 import { useEffect } from 'react';
 import bodyHtml from './coldframe-body.html?raw';
-import { coffeeProducts, getCafeImageUrl } from './data/coffee-products.js';
+
+const userImages = [
+  '/images/Main_Image.jpg',
+  '/images/Cold-Coffee-4.webp',
+  '/images/Cold-Coffee-with-ice-cream.png',
+  '/images/Image1.jpg',
+  '/images/oreo-cold-coffee-shake.jpg'
+];
 
 let legacyBootstrapped = false;
 
@@ -17,10 +24,11 @@ export default function App() {
   useEffect(() => {
     const replaceWearableImages = () => {
       const allImages = document.querySelectorAll('img');
-      allImages.forEach((img, index) => {
-        if (img.src && (img.src.includes('wearable') || img.src.includes('bikini') || img.src.includes('bite') || img.src.includes('glasses') || img.src.includes('intro') || img.src.includes('outro') || img.src.includes('pocket') || img.src.includes('shoulder') || img.src.includes('yoga'))) {
-          const coffeeIndex = index % coffeeProducts.length;
-          img.src = getCafeImageUrl(coffeeProducts[coffeeIndex].prompt);
+      let imageIndex = 0;
+      allImages.forEach((img) => {
+        if (img.src) {
+          img.src = userImages[imageIndex % userImages.length];
+          imageIndex++;
         }
       });
     };
