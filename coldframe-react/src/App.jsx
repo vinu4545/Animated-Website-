@@ -22,6 +22,13 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const aiTitle = document.getElementById('ai-title');
+    if (aiTitle) {
+      aiTitle.textContent = 'Powered by ColdFrame';
+    }
+  }, []);
+
+  useEffect(() => {
     const replaceWearableImages = () => {
       const allImages = document.querySelectorAll('img');
       let imageIndex = 0;

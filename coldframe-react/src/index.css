@@ -3,3 +3,10 @@
   margin: 0;
   padding: 0;
 }
+
+#hero {
+  background-image: url('../Images/Cold-Coffee-with-ice-cream (1).png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
