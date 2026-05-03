@@ -22,9 +22,45 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const heroLogo = document.getElementById('hero-logo-ref');
+    const heroTopTagline = document.getElementById('hero-top-tagline');
+    const heroCopy = document.getElementById('hero-copy');
+    const heroCard = document.getElementById('hero-card');
+
+    if (heroLogo) {
+      heroLogo.textContent = 'COLDFRAME';
+      Object.assign(heroLogo.style, {
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)',
+        zIndex: '2',
+        color: '#4b2a14',
+        fontSize: 'clamp(3rem, 7vw, 6.5rem)',
+        fontWeight: '800',
+        letterSpacing: '0.08em',
+        textTransform: 'uppercase',
+        lineHeight: '1',
+        whiteSpace: 'nowrap',
+        textAlign: 'center',
+        pointerEvents: 'none'
+      });
+    }
+
+    [heroTopTagline, heroCopy, heroCard].forEach((element) => {
+      if (element) {
+        element.style.display = 'none';
+      }
+    });
+
     const aiTitle = document.getElementById('ai-title');
     if (aiTitle) {
       aiTitle.textContent = 'Powered by ColdFrame';
+    }
+
+    const aiBody = document.querySelector('#ai-pre .body1');
+    if (aiBody) {
+      aiBody.innerHTML = '<span>ColdFrame brings a richer, </span><span>smoother coffee moment </span><span>to the table.</span>';
     }
   }, []);
 
@@ -47,10 +83,24 @@ export default function App() {
   }, []);
 
   return (
-    <div
-      id="coldframe-legacy-root"
-      suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: bodyHtml }}
-    />
+    <>
+      <div
+        id="coldframe-legacy-root"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: bodyHtml }}
+      />
+      <div
+        id="developer-credit"
+        style={{
+          textAlign: 'center',
+          padding: '16px 0 24px',
+          fontSize: '0.9rem',
+          letterSpacing: '0.04em',
+          opacity: 0.8
+        }}
+      >
+        developed by Vinay
+      </div>
+    </>
   );
 }

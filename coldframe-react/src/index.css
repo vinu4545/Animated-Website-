@@ -6,7 +6,17 @@
 
 #hero {
   background-image: url('../Images/Cold-Coffee-with-ice-cream (1).png');
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  background-position: center center;
   background-repeat: no-repeat;
+}
+
+#hero-logo-ref {
+  pointer-events: none;
+}
+
+#hero-top-tagline,
+#hero-copy,
+#hero-card {
+  display: none;
 }
